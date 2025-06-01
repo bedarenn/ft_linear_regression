@@ -1,0 +1,1 @@
+The affine function $f(x) = ax + b$ represents a straight line where $a$ is the slope and $b$ is the intercept. In this context, it is used to approximate a linear relationship between two variables from the dataset, with $a$ and $b$ computed from the data.
