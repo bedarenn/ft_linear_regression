@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from model_io import save
-from model_io import load
+from model_io import save, load
 
 
 ALPHA = 0.5

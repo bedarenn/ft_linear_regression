@@ -29,8 +29,8 @@ def predict(nb: float | int,
 def main():
     theta0, theta1 = load_json()
     for strParam in sys.argv[1:]:
-        nb = float(strParam)
-        print(f"{nb:,.2f}km = {predict(nb, theta0, theta1):.2f}")
+        nb = int(strParam)
+        print(f"{nb:,}km = {predict(nb, theta0, theta1):.2f}")
 
 
 if __name__ == "__main__":
