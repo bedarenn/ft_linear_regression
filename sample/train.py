@@ -8,6 +8,11 @@ ALPHA = 0.5
 
 
 def load_json() -> tuple[float | int, float | int, float | int]:
+    """
+    Load model parameters (theta0, theta1, alpha) from file.
+    Use default alpha if not saved.
+    """
+
     theta0, theta1, alpha = load()
 
     if (alpha == 0.0):
@@ -20,7 +25,8 @@ def update(df: pd.DataFrame,
            theta0: float | int, theta1: float | int, alpha: float | int
            ) -> tuple[float, float]:
     """
-    Update the terms of an affine function.
+    Perform one gradient descent update for the model parameters
+    based on the input DataFrame.
     """
 
     assert isinstance(theta0, float | int), \
@@ -48,6 +54,12 @@ def update(df: pd.DataFrame,
 
 
 def train_loop(df: pd.DataFrame) -> tuple[float | int, float | int]:
+    """
+    Train the model until convergence using gradient descent.
+    Normalize input data and update parameters iteratively.
+    Save the final parameters to file.
+    """
+
     theta0, theta1, alpha = load_json()
 
     km_min = df['km'].min()
@@ -76,6 +88,10 @@ def train_loop(df: pd.DataFrame) -> tuple[float | int, float | int]:
 
 
 def plot(df: pd.DataFrame, theta0: float | int, theta1: float | int) -> None:
+    """
+    Plot the data points and the resulting affine regression line.
+    """
+
     print(theta0, theta1)
 
     x_val = [0, -theta0 / theta1]

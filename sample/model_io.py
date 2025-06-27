@@ -3,7 +3,7 @@ import json
 
 def save(theta0: float | int, theta1: float | int, alpha: float | int) -> None:
     """
-    Save coefficient in a JSON file.
+    Save the model parameters (theta0, theta1, alpha) to a JSON file.
     """
 
     assert isinstance(theta0, float | int), \
@@ -25,8 +25,10 @@ def save(theta0: float | int, theta1: float | int, alpha: float | int) -> None:
 
 def load() -> tuple[float | int, float | int, float | int]:
     """
-    Load coefficient from a JSON file.
+    Load the model parameters (theta0, theta1, alpha) from a JSON file.
+    Return default values if the file does not exist.
     """
+
 
     try:
         with open("../json/model.json", "r") as f:
