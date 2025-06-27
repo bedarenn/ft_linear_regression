@@ -7,7 +7,7 @@ from model_io import load
 ALPHA = 0.5
 
 
-def load_json(df: pd.DataFrame) -> tuple[float | int, float | int, float | int]:
+def load_json() -> tuple[float | int, float | int, float | int]:
     theta0, theta1, alpha = load()
 
     if (alpha == 0.0):
@@ -48,7 +48,7 @@ def update(df: pd.DataFrame,
 
 
 def train_loop(df: pd.DataFrame) -> tuple[float | int, float | int]:
-    theta0, theta1, alpha = load_json(df)
+    theta0, theta1, alpha = load_json()
 
     km_min = df['km'].min()
     km_max = df['km'].max()
