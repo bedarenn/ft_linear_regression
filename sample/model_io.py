@@ -1,4 +1,5 @@
 import json
+import os
 
 
 def save(theta0: float | int, theta1: float | int, alpha: float | int) -> None:
@@ -29,7 +30,8 @@ def load() -> tuple[float | int, float | int, float | int]:
     Return default values if the file does not exist.
     """
 
-
+    path = "../json/model.json"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     try:
         with open("../json/model.json", "r") as f:
             data = json.load(f)
